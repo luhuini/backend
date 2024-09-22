@@ -17,18 +17,14 @@ import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const app = express();
 const port = 3000;
-let url = "";
+let auth = false;
 // create application/json parser
 let jsonParser = bodyParser.json();
 // create application/x-www-form-urlencoded parser
 app.use(bodyParser.urlencoded({ extended: true }));
 const getURLMethod = (req, res, next) => {
   console.log(req.body);
-  if (req.body.password === "ILoveProgramming") {
-    url = "secret";
-  } else {
-    url = "index";
-  }
+  if (req.body.password === "ILoveProgramming") auth = true;
   next();
 };
 app.use(getURLMethod);
@@ -37,9 +33,11 @@ app.get("/", (req, res) => {
   res.sendFile(__dirname + "/public/index.html");
 });
 app.post("/check", (req, res) => {
-  console.log(url);
-
-  res.sendFile(__dirname + `/public/${url}.html`);
+  if (auth) {
+    res.sendFile(__dirname + "/public/secret.html");
+  } else {
+    res.sendFile(__dirname + "/public/index.html");
+  }
 });
 app.listen(port, (req, res) => {
   console.log("your port started");
