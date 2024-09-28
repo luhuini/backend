@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>EJS Tags</title>
+  </head>
+
+  <body>
+    <h1><%= title %></h1>
+    <p>Current second: <%= seconds %></p>
+    <ul>
+      <% if (seconds % 2 === 0) { %>
+      <!-- 如果秒数是偶数，遍历 items 对象 -->
+      <% for (let key in items) { %>
+      <li><%= key %>: <%= items[key] %></li>
+      <% } %> <% } else { %>
+      <!-- 如果秒数是奇数，显示 "No items to display" -->
+      <p>No items to display</p>
+      <% } %>
+    </ul>
+    <p><%- htmlContent %></p>
+
+    <!-- Footer goes here -->
+    <%- include('footer.ejs') %>
+  </body>
+</html>
