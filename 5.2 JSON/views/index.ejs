@@ -15,9 +15,8 @@
     </form>
     <div id="recipeContainer" class="hidden">
       <!-- If no recipe yet, show: -->
+      <% if (eachRecipe) { %>
       <h2>Pick your favourite taco ingredient 👆</h2>
-      <!-- Else, show the recipe name e.g. <h2>Recipe name</h2>-->
-
       <h3>Ingredients:</h3>
       <ul id="ingredientsList">
         <li>
@@ -31,6 +30,10 @@
         <span><%= item.name%>,<%= item.quantity %></span>
         <% }) %>
       </ul>
+      <% } else { %>
+      <h2>Pick your favourite taco ingredient 👆</h2>
+      <% } %>
+      <!-- Else, show the recipe name e.g. <h2>Recipe name</h2>-->
     </div>
   </body>
 </html>
