@@ -43,7 +43,7 @@ app.post("/", async (req, res) => {
     console.log(result.data.length);
     console.log(randomIndex);
     let randomItem = result.data[randomIndex];
-    console.log(randomItem); // Randomly selected fruit
+    console.log(randomItem); // Randomly selected
     res.render("index.ejs", { randomItem });
   } catch (error) {
     console.error("Failed to make request:", error.code);
