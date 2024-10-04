@@ -18,7 +18,8 @@
   "contributors": [],
   "scripts": {
     "dev": "",
-    "test": ""
+    "test": "",
+    "build": "npm run build"
   },
   "description": "",
   "dependencies": {
