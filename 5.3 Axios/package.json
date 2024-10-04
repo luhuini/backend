@@ -19,7 +19,8 @@
   "scripts": {
     "dev": "",
     "test": "",
-    "build": "npm run build"
+    "build": "npm run build",
+    "start": "node index.js"
   },
   "description": "",
   "dependencies": {
