@@ -79,12 +79,12 @@ app.post("/put-secret", async (req, res) => {
 app.post("/patch-secret", async (req, res) => {
   const searchId = req.body.id;
   // TODO 4: Use axios to PATCH the data from req.body to the secrets api servers.
-  let patchSerect = {
-    secret: req.body.secret,
-    score: req.body.score,
-  };
+  // let patchSerect = {
+  //   secret: req.body.secret,
+  //   score: req.body.score,
+  // };
   try {
-    await axios.patch(`${API_URL}/secrets/${searchId}`, patchSerect, {
+    await axios.patch(`${API_URL}/secrets/${searchId}`, req.body, {
       headers: { Authorization: `Bearer ${yourBearerToken}` },
     });
   } catch (error) {
